@@ -1,0 +1,78 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /assurance
+
+apiurl: 
+  sampleValue: http://localhost:8080/otherservice
+
+  
+---
+server:
+  port: 8082
+  
+spring:
+  profiles: default
+  
+  datasource:
+    url: jdbc:mysql://${DATASORUCE_ADDRESS:34.84.76.152:3306}/${DATASORUCE_TABLESPACE:lguplus}
+    username: ${DATASORUCE_USERNAME:lguplus}
+    password: ${DATASORUCE_PASSWORD:1234}
+    driverClassName: com.mysql.cj.jdbc.Driver
+            
+  mybatis:
+    configuration-properties:
+      aggressiveLazyLoading: false
+      lazyLoadingEnabled: true
+      lazyLoadTriggerMethods: ""
+      mapUnderscoreToCamelCase: true
+      
+  redis:
+    host: 192.168.0.11
+    port: 6379    
+    password: 1111
+    database: 1
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 2    
+    
+---
+spring:
+  profiles: docker
+  sleuth:
+    sampler:
+      probability: 1
+    web:
+      skipPattern: (^cleanup.*|.+favicon.*)
+
+  datasource:
+    url: jdbc:mysql://${DATASORUCE_ADDRESS:34.84.76.152:3306}/${DATASORUCE_TABLESPACE:lguplus}
+    username: ${DATASORUCE_USERNAME:lguplus}
+    password: ${DATASORUCE_PASSWORD:1234}
+    driverClassName: com.mysql.cj.jdbc.Driver
+    
+  mybatis:
+    configuration-properties:
+      aggressiveLazyLoading: false
+      lazyLoadingEnabled: true
+      lazyLoadTriggerMethods: ""
+      mapUnderscoreToCamelCase: true
+    
+---
+spring:
+  profiles: test
+  
+  datasource:
+    url: jdbc:mysql://34.84.76.152:3306/lguplus
+    username: lguplus
+    password: 1234
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+  mybatis:
+    configuration-properties:
+      aggressiveLazyLoading: false
+      lazyLoadingEnabled: true
+      lazyLoadTriggerMethods: ""
+      mapUnderscoreToCamelCase: true
