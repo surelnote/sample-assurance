@@ -1,1 +1,1 @@
-Configuration applicaiton
+Monitoring applicaiton
