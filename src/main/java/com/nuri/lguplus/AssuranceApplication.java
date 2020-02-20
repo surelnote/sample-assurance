@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.nuri.lguplus.mybatis")
+@MapperScan(basePackages = "com.nuri.lguplus.repository.mybatis")
 public class AssuranceApplication {
 
     public static ApplicationContext applicationContext;

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nuri.lguplus.domain.SampleEntity;
+import com.nuri.lguplus.domain.SampleDomain;
 import com.nuri.lguplus.mvc.service.SampleEntityService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -27,14 +27,14 @@ public class SampleEntityController {
 //	private RedisTemplate<String, Object> redisTemplate;
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-	public List<SampleEntity> getUser(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public List<SampleDomain> getUser(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return this.sampleEntityService.getList();
 	}
 	
 	
 	@RequestMapping(value = "/redistest", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-	public List<SampleEntity> redistest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		SampleEntity se = new SampleEntity();
+	public List<SampleDomain> redistest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		SampleDomain se = new SampleDomain();
 		se.setUserId("test");
 		se.setUserName("pjjtest");
 //		redisTemplate.opsForValue().set("sample", se);

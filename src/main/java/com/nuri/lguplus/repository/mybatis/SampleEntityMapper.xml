@@ -3,9 +3,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.nuri.lguplus.mybatis.SampleEntityMapper">
+<mapper namespace="com.nuri.lguplus.repository.mybatis.SampleEntityMapper">
 
-	<resultMap id="SampleResult" type="com.nuri.lguplus.domain.SampleEntity">
+	<resultMap id="SampleResult" type="com.nuri.lguplus.domain.SampleDomain">
 		<result column="USERID" property="userId" />
 		<result column="USERNAME" property="userName" />
 		
